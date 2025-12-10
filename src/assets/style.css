@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary-yellow: #ffc700;
+  --color-primary-purple: #5221a6;
+  
+  --color-primary-yellow-rgb: 255 199 0;
+  --color-primary-purple-rgb: 82 33 166;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    background: linear-gradient(to right, #ffc700, #5221a6);
+  }
+  
+  .bg-gradient-primary-reverse {
+    background: linear-gradient(to right, #5221a6, #ffc700);
+  }
+  
+  .bg-gradient-primary-hero {
+    background: linear-gradient(to right, #ffc700, #5221a6, #ffc700);
+  }
+}
