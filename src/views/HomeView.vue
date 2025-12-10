@@ -32,32 +32,74 @@
               </BaseButton>
             </div>
           </div>
-          <div class="hidden lg:block">
-            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <div class="grid grid-cols-2 gap-4">
-                <div class="bg-white/20 rounded-lg p-4 text-center">
-                  <svg class="w-8 h-8 mx-auto mb-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="hidden lg:flex items-center justify-center relative h-[500px]">
+            <!-- Animated Cards Container -->
+            <div class="relative w-full h-full flex items-center justify-center">
+              <!-- Card 1: Телефоны -->
+              <div
+                ref="card1"
+                class="absolute w-56 h-56 rounded-3xl flex flex-col items-center justify-center"
+                :style="card1Style"
+                @mouseenter="handleMouseEnter(0)"
+                @mouseleave="handleMouseLeave(0)"
+                @mousemove="handleMouseMove($event, 0)"
+              >
+                <div class="backdrop-blur-xl rounded-3xl p-8 w-full h-full flex flex-col items-center justify-center border-2 border-white/40 shadow-2xl card-glow-1">
+                  <svg class="w-16 h-16 mb-4 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                   </svg>
-                  <div class="text-sm text-white">Телефоны</div>
+                  <div class="text-xl font-bold text-white drop-shadow-lg">Телефоны</div>
                 </div>
-                <div class="bg-white/20 rounded-lg p-4 text-center">
-                  <svg class="w-8 h-8 mx-auto mb-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              </div>
+
+              <!-- Card 2: Ноутбуки -->
+              <div
+                ref="card2"
+                class="absolute w-56 h-56 rounded-3xl flex flex-col items-center justify-center z-10"
+                :style="card2Style"
+                @mouseenter="handleMouseEnter(1)"
+                @mouseleave="handleMouseLeave(1)"
+                @mousemove="handleMouseMove($event, 1)"
+              >
+                <div class="backdrop-blur-xl rounded-3xl p-8 w-full h-full flex flex-col items-center justify-center border-2 border-white/40 shadow-2xl card-glow-2">
+                  <svg class="w-16 h-16 mb-4 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                   </svg>
-                  <div class="text-sm text-white">Ноутбуки</div>
+                  <div class="text-xl font-bold text-white drop-shadow-lg">Ноутбуки</div>
                 </div>
-                <div class="bg-white/20 rounded-lg p-4 text-center">
-                  <svg class="w-10 h-10 mx-auto mb-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              </div>
+
+              <!-- Card 3: Планшеты -->
+              <div
+                ref="card3"
+                class="absolute w-56 h-56 rounded-3xl flex flex-col items-center justify-center z-20"
+                :style="card3Style"
+                @mouseenter="handleMouseEnter(2)"
+                @mouseleave="handleMouseLeave(2)"
+                @mousemove="handleMouseMove($event, 2)"
+              >
+                <div class="backdrop-blur-xl rounded-3xl p-8 w-full h-full flex flex-col items-center justify-center border-2 border-white/40 shadow-2xl card-glow-3">
+                  <svg class="w-16 h-16 mb-4 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                   </svg>
-                  <div class="text-sm text-white">Планшеты</div>
+                  <div class="text-xl font-bold text-white drop-shadow-lg">Планшеты</div>
                 </div>
-                <div class="bg-white/20 rounded-lg p-4 text-center">
-                  <svg class="w-8 h-8 mx-auto mb-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              </div>
+
+              <!-- Card 4: Быстро -->
+              <div
+                ref="card4"
+                class="absolute w-56 h-56 rounded-3xl flex flex-col items-center justify-center z-30"
+                :style="card4Style"
+                @mouseenter="handleMouseEnter(3)"
+                @mouseleave="handleMouseLeave(3)"
+                @mousemove="handleMouseMove($event, 3)"
+              >
+                <div class="backdrop-blur-xl rounded-3xl p-8 w-full h-full flex flex-col items-center justify-center border-2 border-white/40 shadow-2xl card-glow-4">
+                  <svg class="w-16 h-16 mb-4 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                   </svg>
-                  <div class="text-sm text-white">Быстро</div>
+                  <div class="text-xl font-bold text-white drop-shadow-lg">Быстро</div>
                 </div>
               </div>
             </div>
@@ -221,9 +263,113 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import BaseButton from '@/components/BaseButton.vue'
 import BaseCard from '@/components/BaseCard.vue'
+
+// Refs for cards
+const card1 = ref(null)
+const card2 = ref(null)
+const card3 = ref(null)
+const card4 = ref(null)
+
+// Card rotation states
+const cardRotations = ref([
+  { rotateX: 0, rotateY: 0, isHovered: false },
+  { rotateX: 0, rotateY: 0, isHovered: false },
+  { rotateX: 0, rotateY: 0, isHovered: false },
+  { rotateX: 0, rotateY: 0, isHovered: false }
+])
+
+// Animation delay for staggered entrance
+const animationDelays = [0, 0.1, 0.2, 0.3]
+
+// Handle mouse enter
+const handleMouseEnter = (index) => {
+  cardRotations.value[index].isHovered = true
+}
+
+// Handle mouse leave
+const handleMouseLeave = (index) => {
+  cardRotations.value[index].isHovered = false
+  cardRotations.value[index].rotateX = 0
+  cardRotations.value[index].rotateY = 0
+}
+
+// Handle mouse move for 3D tilt effect
+const handleMouseMove = (event, index) => {
+  if (!cardRotations.value[index].isHovered) return
+  
+  const card = event.currentTarget
+  const rect = card.getBoundingClientRect()
+  const centerX = rect.left + rect.width / 2
+  const centerY = rect.top + rect.height / 2
+  
+  const mouseX = event.clientX - centerX
+  const mouseY = event.clientY - centerY
+  
+  // Calculate rotation (max 20 degrees for more powerful effect)
+  const maxRotation = 20
+  const rotateY = (mouseX / rect.width) * maxRotation
+  const rotateX = -(mouseY / rect.height) * maxRotation
+  
+  cardRotations.value[index].rotateY = rotateY
+  cardRotations.value[index].rotateX = rotateX
+}
+
+// Card positions - grid layout without overlap
+// Card size: w-56 h-56 = 224px, spacing: 120px from center = 16px gap between cards
+const cardPositions = [
+  { x: -120, y: -120 },  // Card 1: top-left
+  { x: 120, y: -120 },    // Card 2: top-right
+  { x: -120, y: 120 },    // Card 3: bottom-left
+  { x: 120, y: 120 }      // Card 4: bottom-right
+]
+
+// Computed styles for each card with 3D transforms
+const card1Style = computed(() => {
+  const rotation = cardRotations.value[0]
+  const pos = cardPositions[0]
+  const scale = rotation.isHovered ? 1.08 : 1
+  return {
+    transform: `translate(${pos.x}px, ${pos.y}px) perspective(1200px) rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg) scale(${scale})`,
+    transition: rotation.isHovered ? 'transform 0.15s cubic-bezier(0.4, 0, 0.2, 1)' : 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+    animation: `fadeInUpScale 1s cubic-bezier(0.4, 0, 0.2, 1) ${animationDelays[0]}s forwards`
+  }
+})
+
+const card2Style = computed(() => {
+  const rotation = cardRotations.value[1]
+  const pos = cardPositions[1]
+  const scale = rotation.isHovered ? 1.08 : 1
+  return {
+    transform: `translate(${pos.x}px, ${pos.y}px) perspective(1200px) rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg) scale(${scale})`,
+    transition: rotation.isHovered ? 'transform 0.15s cubic-bezier(0.4, 0, 0.2, 1)' : 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+    animation: `fadeInUpScale 1s cubic-bezier(0.4, 0, 0.2, 1) ${animationDelays[1]}s forwards`
+  }
+})
+
+const card3Style = computed(() => {
+  const rotation = cardRotations.value[2]
+  const pos = cardPositions[2]
+  const scale = rotation.isHovered ? 1.08 : 1
+  return {
+    transform: `translate(${pos.x}px, ${pos.y}px) perspective(1200px) rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg) scale(${scale})`,
+    transition: rotation.isHovered ? 'transform 0.15s cubic-bezier(0.4, 0, 0.2, 1)' : 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+    animation: `fadeInUpScale 1s cubic-bezier(0.4, 0, 0.2, 1) ${animationDelays[2]}s forwards`
+  }
+})
+
+const card4Style = computed(() => {
+  const rotation = cardRotations.value[3]
+  const pos = cardPositions[3]
+  const scale = rotation.isHovered ? 1.08 : 1
+  return {
+    transform: `translate(${pos.x}px, ${pos.y}px) perspective(1200px) rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg) scale(${scale})`,
+    transition: rotation.isHovered ? 'transform 0.15s cubic-bezier(0.4, 0, 0.2, 1)' : 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+    animation: `fadeInUpScale 1s cubic-bezier(0.4, 0, 0.2, 1) ${animationDelays[3]}s forwards`
+  }
+})
 
 const features = ref([
   {
@@ -344,4 +490,53 @@ const reviews = ref([
   }
 ])
 </script>
+
+<style scoped>
+@keyframes fadeInUpScale {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.7) rotateY(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateY(0deg);
+  }
+}
+
+.card-glow-1 {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+  box-shadow: 0 20px 60px rgba(82, 33, 166, 0.4), 0 0 40px rgba(255, 199, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.card-glow-1:hover {
+  box-shadow: 0 25px 80px rgba(82, 33, 166, 0.6), 0 0 60px rgba(255, 199, 0, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.card-glow-2 {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+  box-shadow: 0 20px 60px rgba(107, 45, 212, 0.4), 0 0 40px rgba(255, 199, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.card-glow-2:hover {
+  box-shadow: 0 25px 80px rgba(107, 45, 212, 0.6), 0 0 60px rgba(255, 199, 0, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.card-glow-3 {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+  box-shadow: 0 20px 60px rgba(255, 199, 0, 0.4), 0 0 40px rgba(82, 33, 166, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.card-glow-3:hover {
+  box-shadow: 0 25px 80px rgba(255, 199, 0, 0.6), 0 0 60px rgba(82, 33, 166, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.card-glow-4 {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+  box-shadow: 0 20px 60px rgba(82, 33, 166, 0.3), 0 0 40px rgba(107, 45, 212, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.card-glow-4:hover {
+  box-shadow: 0 25px 80px rgba(82, 33, 166, 0.5), 0 0 60px rgba(107, 45, 212, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+</style>
 
