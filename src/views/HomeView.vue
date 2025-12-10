@@ -6,7 +6,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div class="text-white">
             <h1 class="text-4xl md:text-5xl font-bold mb-6">
-              Ремонт телефонов, MacBook, iPad и ноутбуков в Алматы
+              Профессиональный Ремонт Телефонов - Планшетов - Ноутбуков - MacBook - iMac - iPad - Apple Watch в Алматы
             </h1>
             <p class="text-xl mb-8 text-white/90">
               Бесплатная диагностика • Опытные мастера • Гарантия на все работы • 
