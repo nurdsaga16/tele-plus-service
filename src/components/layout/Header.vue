@@ -3,8 +3,14 @@
     <nav class="container mx-auto px-4 py-4">
       <div class="flex items-center justify-between">
         <!-- Logo -->
-        <router-link to="/" class="flex items-center">
-          <img :src="logo" alt="Tele Plus Service" class="h-15 md:h-18 w-auto" />
+        <router-link to="/" class="flex items-center gap-3">
+          <img :src="logo" alt="Tele Plus Service" class="h-15 md:h-15 w-auto" />
+          <span 
+            class="text-xl md:text-2xl font-bold"
+            style="background: linear-gradient(135deg, #1e40af 0%, #5221a6 50%, #7c3aed 100%); -webkit-background-clip: text; background-clip: text; color: transparent;"
+          >
+            Tele Plus Service Center
+          </span>
         </router-link>
 
         <!-- Desktop Navigation -->
@@ -25,15 +31,6 @@
               active-class="text-gray-900"
             >
               Услуги
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/prices"
-              class="text-gray-700 hover:text-gray-900 font-medium"
-              active-class="text-gray-900"
-            >
-              Цены
             </router-link>
           </li>
           <li>

@@ -26,11 +26,6 @@
               </router-link>
             </li>
             <li>
-              <router-link to="/prices" class="hover:text-gray-100">
-                Цены
-              </router-link>
-            </li>
-            <li>
               <router-link to="/warranty" class="hover:text-gray-100">
                 Гарантия
               </router-link>
