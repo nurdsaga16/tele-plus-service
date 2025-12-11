@@ -101,7 +101,7 @@
       <section class="mb-16">
         <h2 class="text-3xl font-bold mb-8 text-gray-800">Как воспользоваться гарантией</h2>
         <div class="space-y-6">
-          <div v-for="(step, index) in warrantySteps" :key="index" class="flex gap-4">
+          <div v-for="(step, index) in warrantyStepsRef" :key="index" class="flex gap-4">
             <div class="flex-shrink-0 w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white font-bold">
               {{ index + 1 }}
             </div>
@@ -118,7 +118,7 @@
         <h2 class="text-3xl font-bold mb-8 text-gray-800">Когда гарантия не действует</h2>
         <div class="bg-red-50 border-l-4 border-red-500 rounded-lg p-6">
           <ul class="space-y-3">
-            <li v-for="(case_, index) in warrantyExceptions" :key="index" class="flex items-start">
+            <li v-for="(case_, index) in warrantyExceptionsRef" :key="index" class="flex items-start">
               <span class="text-red-500 mr-3 font-bold">×</span>
               <span class="text-gray-700">{{ case_ }}</span>
             </li>
@@ -188,34 +188,10 @@
 import { ref } from 'vue'
 import BaseCard from '@/components/BaseCard.vue'
 import BaseButton from '@/components/BaseButton.vue'
+import { warrantySteps, warrantyExceptions } from '@/data/index.js'
 
-const warrantySteps = ref([
-  {
-    title: 'Свяжитесь с нами',
-    description: 'Позвоните или напишите в WhatsApp, опишите проблему, которая возникла с устройством.'
-  },
-  {
-    title: 'Предоставьте гарантийный талон',
-    description: 'При обращении необходимо предъявить гарантийный талон или квитанцию об оплате ремонта.'
-  },
-  {
-    title: 'Диагностика',
-    description: 'Мастер проведёт бесплатную диагностику, чтобы определить причину повторной неисправности.'
-  },
-  {
-    title: 'Гарантийный ремонт',
-    description: 'Если проблема связана с нашими работами или установленными запчастями, ремонт выполняется бесплатно.'
-  }
-])
-
-const warrantyExceptions = ref([
-  'Новые механические повреждения, полученные после ремонта (падения, удары, трещины)',
-  'Следы стороннего вмешательства или попыток самостоятельного ремонта',
-  'Грубое нарушение правил эксплуатации устройства',
-  'Повреждения, вызванные скачками напряжения или использованием неоригинальных зарядных устройств',
-  'Повреждения, связанные с попаданием влаги после ремонта',
-  'Естественный износ запчастей после окончания гарантийного срока',
-  'Повреждения, вызванные программным обеспечением, установленным пользователем'
-])
+// Convert imported data to refs for reactivity
+const warrantyStepsRef = ref(warrantySteps)
+const warrantyExceptionsRef = ref(warrantyExceptions)
 </script>
 

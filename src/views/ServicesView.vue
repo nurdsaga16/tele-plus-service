@@ -25,11 +25,11 @@
         
         <!-- Mobile Cards View -->
         <div class="md:hidden space-y-4">
-          <div
-            v-for="(service, index) in phoneAndTabletPrices"
-            :key="index"
-            class="bg-white rounded-lg shadow-md p-5 border border-gray-200"
-          >
+            <div
+              v-for="(service, index) in phoneAndTabletPricesRef"
+              :key="index"
+              class="bg-white rounded-lg shadow-md p-5 border border-gray-200"
+            >
             <div class="flex items-start justify-between mb-2">
               <h3 class="font-semibold text-gray-800 text-lg pr-2">{{ service.name }}</h3>
               <span class="text-gray-700 font-bold text-xl whitespace-nowrap">{{ service.price }} ₸</span>
@@ -49,7 +49,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(service, index) in phoneAndTabletPrices" :key="index" class="border-b border-gray-200 hover:bg-gray-50">
+              <tr v-for="(service, index) in phoneAndTabletPricesRef" :key="index" class="border-b border-gray-200 hover:bg-gray-50">
                 <td class="px-6 py-4 font-semibold text-gray-800">{{ service.name }}</td>
                 <td class="px-6 py-4 text-gray-600 text-sm">{{ service.description }}</td>
                 <td class="px-6 py-4 text-center">
@@ -72,11 +72,11 @@
         
         <!-- Mobile Cards View -->
         <div class="md:hidden space-y-4">
-          <div
-            v-for="(service, index) in laptopPrices"
-            :key="index"
-            class="bg-white rounded-lg shadow-md p-5 border border-gray-200"
-          >
+            <div
+              v-for="(service, index) in laptopPricesRef"
+              :key="index"
+              class="bg-white rounded-lg shadow-md p-5 border border-gray-200"
+            >
             <div class="flex items-start justify-between mb-2">
               <h3 class="font-semibold text-gray-800 text-lg pr-2">{{ service.name }}</h3>
               <span class="text-gray-700 font-bold text-xl whitespace-nowrap">{{ service.price }} ₸</span>
@@ -96,7 +96,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(service, index) in laptopPrices" :key="index" class="border-b border-gray-200 hover:bg-gray-50">
+              <tr v-for="(service, index) in laptopPricesRef" :key="index" class="border-b border-gray-200 hover:bg-gray-50">
                 <td class="px-6 py-4 font-semibold text-gray-800">{{ service.name }}</td>
                 <td class="px-6 py-4 text-gray-600 text-sm">{{ service.description }}</td>
                 <td class="px-6 py-4 text-center">
@@ -162,29 +162,11 @@
 <script setup>
 import { ref } from 'vue'
 import BaseButton from '@/components/BaseButton.vue'
+import { phoneAndTabletPrices, laptopPrices } from '@/data/index.js'
 
-const phoneAndTabletPrices = ref([
-  { name: 'Замена дисплея TFT', description: 'Установка TFT-модуля', price: '5 000' },
-  { name: 'Замена дисплея IPS', description: 'Установка IPS-модуля', price: '6 000' },
-  { name: 'Замена дисплея OMOLED', description: 'Установка OMOLED-модуля', price: '6 000' },
-  { name: 'Замена батареи', description: 'Подбор и установка новой батареи', price: '8 000' },
-  { name: 'Замена шлейфов', description: 'Шлейф кнопок, дисплея, датчиков', price: '5 000' },
-  { name: 'Замена порта Micro-USB', description: 'Замена разъёма Micro-USB', price: '3 000' },
-  { name: 'Замена порта Type-C', description: 'Замена разъёма Type-C', price: '6 000' },
-  { name: 'Замена шлейфа зарядки', description: 'Шлейф зарядного модуля', price: '5 000' },
-  { name: 'Замена слухового/полифонического динамика', description: 'Чистка или замена динамиков', price: '6 000' }
-])
-
-const laptopPrices = ref([
-  { name: 'Офисные ноутбуки — чистка + MX-4', description: 'Чистка системы охлаждения, замена термопасты MX-4', price: '8 000' },
-  { name: 'Офисные ноутбуки — чистка + Honeywell', description: 'Чистка, термопаста с фазовым переходом Honeywell', price: '16 000' },
-  { name: 'Игровые ноутбуки — чистка + MX-4', description: 'Чистка системы охлаждения, термопаста MX-4', price: '8 000' },
-  { name: 'Игровые ноутбуки — Honeywell + Laird', description: 'Чистка, Honeywell + жидкие термопрокладки Laird', price: '28 000' },
-  { name: 'Компьютеры — чистка + MX-4', description: 'Чистка и замена термопасты MX-4', price: '8 000' },
-  { name: 'Компьютеры — Honeywell + Laird', description: 'Чистка, Honeywell + жидкие термопрокладки Laird', price: '28 000' },
-  { name: 'MacBook — чистка + MX-4', description: 'Чистка системы охлаждения, термопаста MX-4', price: '10 000' },
-  { name: 'MacBook — чистка + Honeywell', description: 'Чистка, термопаста с фазовым переходом Honeywell', price: '16 000' }
-])
+// Convert imported data to refs for reactivity
+const phoneAndTabletPricesRef = ref(phoneAndTabletPrices)
+const laptopPricesRef = ref(laptopPrices)
 
 </script>
 

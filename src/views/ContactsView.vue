@@ -69,8 +69,9 @@
                 </div>
                 <div>
                   <h3 class="font-semibold text-lg mb-1 text-gray-800">График работы</h3>
-                  <p class="text-gray-600">Понедельник - Суббота: 10:00 - 20:00</p>
-                  <p class="text-gray-600">Воскресенье: 11:00 - 18:00</p>
+                  <p class="text-gray-600">Понедельник - Четверг: 10:00 - 20:00</p>
+                  <p class="text-gray-600">Пятница: 15:00 - 20:00</p>
+                  <p class="text-gray-600">Суббота - Воскресенье: 12:00 - 20:00</p>
                 </div>
               </div>
             </div>
